@@ -33,15 +33,22 @@
 * sanic项目在macos系统中(windows系统忽略此条),如果需要pycharm进行接口内部断点debug,需要设置sanic的auto_reload=False,否则无效
 
 # 项目部署或启动方法
-* 使用gunicorn,命令如下
+* 环境变量设置
+```shell script
+export SANIC_ENV='LOCAl'
+```
+* 使用gunicorn运行,命令如下
 ```shell script
 gunicorn -w 9 -b 0.0.0.0:5000 -t 10 start:app --worker-class sanic.worker.GunicornWorker
 ```
-* 使用内置run()运行,可以指定workers进程数量
-```
+* 使用内置run()多进程运行,可以指定workers进程数量,看了源代码，好像此方法默认就是使用的uvloop,在sanic.server.py的35,36行
+```shell script
 python start.py
 ```
-
+* 使用uvloop运行
+```shell script
+python start_loop.py
+```
 # 示例功能描述
 * 通过异步redis进行redis list的相关操作
 * 实现RSA非对称加密 对参数进行加解密功能 [相关链接](https://www.cnblogs.com/rgcLOVEyaya/p/RGC_LOVE_YAYA_327days.html)
@@ -55,6 +62,7 @@ python start.py
 # 其他备注
 * mysql相关: 使用 [tortoise-orm](https://tortoise-orm.readthedocs.io/en/latest/getting_started.html) 进行mysql的orm操作，但是限制python>=3.7
 * sanic官方推荐的 [相关拓展](https://github.com/mekicha/awesome-sanic#orm)
+* sanic官方文档给出的相关 [框架示例代码](https://github.com/huge-success/sanic/tree/master/examples)
 
 # 总结
 * sanic框架的各种第三方包有待完善,特别是mysql相关orm包(渴望出来个sqlalchemy级别的)
