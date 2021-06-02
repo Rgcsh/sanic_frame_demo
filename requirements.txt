@@ -29,5 +29,5 @@ sanic-redis==0.2.0
 setuptools==44.1.0
 sniffio==1.1.0
 ujson==2.0.3
-urllib3==1.25.9
+urllib3==1.26.5
 websockets==8.1
