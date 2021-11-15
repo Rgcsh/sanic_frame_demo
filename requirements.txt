@@ -19,7 +19,7 @@ hyperframe==5.2.0
 idna==2.9
 immutables==0.14
 multidict==4.7.6
-pip==20.0.2
+pip==21.1
 pycryptodome==3.9.7
 rfc3986==1.4.0
 sanic==20.3.0
