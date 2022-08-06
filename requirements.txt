@@ -22,7 +22,7 @@ multidict==4.7.6
 pip==20.0.2
 pycryptodome==3.9.7
 rfc3986==1.4.0
-sanic==20.3.0
+sanic==20.12.7
 Sanic-Cors==0.10.0.post3
 Sanic-Plugins-Framework==0.9.2
 sanic-redis==0.2.0
